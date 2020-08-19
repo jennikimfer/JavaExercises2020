@@ -29,14 +29,14 @@ public class Main {
                 String branch = scan.next();
 
                 if(position.equals("employee")){
-                    Employee e = new Employee(name, position, salary);
-                    employees = addEmployee(employees, e);
-                    //employees.add(e);
+                    Employee emp = new Employee(name, position, salary);
+                    employees = addEmployee(employees, emp);
+                    //employees.add(emp);
                     hasEmployee = true;
                 } else if(position.equals("manager")){
-                    Manager m = new Manager(name, position, branch, salary);
-                    managers = addManager(managers, m);
-                    //managers.add(m);
+                    Manager man = new Manager(name, position, branch, salary);
+                    managers = addManager(managers, man);
+                    //managers.add(man);
                     hasEmployee = true;
                 }
 
@@ -48,15 +48,15 @@ public class Main {
                 while(true){
                     System.out.print("\nEnter their name: ");
                     String nameUser = scan.next();
-                    Employee emp = registeredE(employees, nameUser);
-                    Manager man = registeredM(managers, nameUser);
-                    //Employee emp = registeredEList(employees, nameUser);
-                    //Manager man = registeredMList(managers, nameUser); 
-                    if(emp != null){
-                        System.out.println("\n" + emp.toString());
+                    Employee employee = registeredE(employees, nameUser);
+                    Manager manager = registeredM(managers, nameUser);
+                    //Employee employee = registeredEList(employees, nameUser);
+                    //Manager manager = registeredMList(managers, nameUser); 
+                    if(employee != null){
+                        System.out.println("\n" + employee.toString());
                         break;
-                    } else if(man != null){
-                        System.out.println("\n" + man.toString());
+                    } else if(manager != null){
+                        System.out.println("\n" + manager.toString());
                         break;
                     } else{
                         System.out.println("\n" + nameUser + " is not a valid employee.");
@@ -122,10 +122,10 @@ public class Main {
         return temp;
     }
 
-    public static Employee registeredEList(ArrayList<Employee> v, String name){
+    public static Employee registeredEList(ArrayList<Employee> e, String name){
         Employee temp;
-        for(int i = 0; i < v.size(); i++){
-            temp = v.get(i);
+        for(int i = 0; i < e.size(); i++){
+            temp = e.get(i);
             if(temp.getName().equals(name)){
                 return temp;
             }
@@ -134,10 +134,10 @@ public class Main {
         return temp;
     }
 
-    public static Manager registeredMList(ArrayList<Manager> v, String name){
+    public static Manager registeredMList(ArrayList<Manager> m, String name){
         Manager temp = null;
-        for(int i = 0; i < v.size(); i++){
-            temp = v.get(i);
+        for(int i = 0; i < m.size(); i++){
+            temp = m.get(i);
             if(temp.getName().equals(name)){
                 return temp;
             }
